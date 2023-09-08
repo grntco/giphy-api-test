@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+</head>
+<body>
+  <img src="#">
+  <style>
+    body {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 100vh;
+        background-color: black;
+    }
+  </style>
+  <script>
+    const img = document.querySelector('img');
+
+    fetch('https://api.giphy.com/v1/gifs/translate?api_key=jHDqa0zqAFNZGDHkOfIxy5h0vsYmWS85&s=henry-cavill', {
+        mode: 'cors'
+    }).then(function(response) {
+        return response.json();
+    }).then(function(response) {
+        img.src = response.data.images.original.url;
+    });
+  </script>
+</body>
+</html>
